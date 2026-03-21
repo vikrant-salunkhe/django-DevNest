@@ -18,7 +18,7 @@
       <header class="blog-header py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
           <div class="col-4 pt-1">
-            <a class="blog-header-logo text-dark" href="/">Django Blog</a>
+            <a class="blog-header-logo text-dark" href="/">DevNest</a>
           </div>
           <div class="col-4">
             <form action="{% url 'search' %}" method="GET">
@@ -33,10 +33,10 @@
             <a class="btn btn-sm btn-warning" href="{% url 'login' %}">Login</a> &nbsp;
             <a class="btn btn-sm btn-outline-secondary" href="{% url 'register' %}">Register</a>
             {% else %}
-            {% comment %} <span><a href="{% url 'dashboard' %}">Dashboard</a></span> {% endcomment %}
+            <span><a href="{% url 'home' %}">Dashboard</a></span>
             &emsp;
             
-            {% comment %} <span><a href="{% url 'logout' %}">Logout</a></span> {% endcomment %}
+            <span><a href="{% url 'logout' %}">Logout</a></span>
             {% endif %}
           </div>
         </div>
