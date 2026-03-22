@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Blog #Comment
+from .models import Category, Blog, Comment
 
 # slug should be auto generated
 # when the blog title is very large then it is not possible to write slug manually
@@ -13,4 +13,4 @@ class BlogAdmin(admin.ModelAdmin):
 
 admin.site.register(Category)
 admin.site.register(Blog, BlogAdmin)
-# admin.site.register(Comment)
+admin.site.register(Comment)
