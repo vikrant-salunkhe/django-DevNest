@@ -2,7 +2,68 @@
 
   {% block content %}    
 
-  {% for post in featured_posts %}
+
+
+  {% load static %}
+
+{% comment %} style for hover effect on post cards {% endcomment %}
+  <style>
+  .post-card {
+    transition: all 0.3s ease;
+  }
+
+  .post-card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    cursor: pointer;
+  }
+</style>
+
+{% comment %} hero section {% endcomment %}
+<div class="jumbotron p-3 p-md-5 text-white rounded bg-dark"
+     style="background-image: url('{% static 'images/hero01.png' %}');
+            background-blend-mode: overlay;
+            background-size: cover;
+            background-position: center;">
+
+  <div class="col-md-8 px-0">
+
+    <h1 class="display-4 font-italic">
+      DevNest — Where Developers Share & Grow
+    </h1>
+
+    <p class="lead my-3">
+      A dedicated platform for developers to explore real-world tech content,
+      share knowledge, and stay updated with the latest in Web Development,
+      AI/ML, DevOps, and more.
+    </p>
+
+    <div class="mt-3">
+      <a href="#featured-section" class="btn btn-warning mr-2 px-4">
+        Explore Content
+      </a>
+
+      {% if user.is_authenticated %}
+  <a href="{% url 'dashboard' %}" class="btn btn-outline-light px-4">
+    Create Content
+  </a>
+{% else %}
+  <a href="{% url 'login' %}" class="btn btn-outline-light px-4">
+    Create Content
+  </a>
+{% endif %}
+    </div>
+
+  </div>
+</div>
+
+
+
+
+  <!-- Featured Posts -->
+  <h3 id="featured-section"  class="text-uppercase text-warning" style="letter-spacing: 2px;">Featured Posts</h3>
+
+  {% comment %} {% for post in featured_posts %}
     {% if forloop.last %}
     <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark" style="background-image: url({{ post.featured_image.url }});background-blend-mode: overlay;background-size:cover;">
       <div class="col-md-8 px-0">
@@ -14,8 +75,7 @@
     {% endif %}
   {% endfor %}
 
-  <!-- Featured Posts -->
-  <h3 class="text-uppercase text-warning" style="letter-spacing: 2px;">Featured Posts</h3>
+
   <div class="row mb-2">
     {% for post in featured_posts %}
       {% if not forloop.last %}
@@ -31,7 +91,41 @@
       {% endif %}
     {% endfor %}
     
+  </div> {% endcomment %}
+
+
+<div class="container mt-4">
+  <div class="row">
+
+    {% for post in featured_posts %}
+    
+    <div class="col-md-6 mb-4">
+      <div class=" post-card jumbotron text-white rounded h-100 p-4"
+           style="background-image: 
+       linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+       url('{{ post.featured_image.url }}');
+       background-size: contain;
+       background-position: center;"
+      >
+
+        <h2 class="font-italic">{{ post.title }}</h2>
+
+        <p class="my-3">
+          {{ post.short_description|truncatewords:20 }}
+        </p>
+
+        <a href="{% url 'blogs' post.slug %}"
+           class="text-warning font-weight-bold">
+           Continue reading →
+        </a>
+
+      </div>
+    </div>
+
+    {% endfor %}
+
   </div>
+</div>
 
 
   <!-- Recent Articles -->
