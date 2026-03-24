@@ -33,4 +33,7 @@ urlpatterns = [
 
     # Dashboards
     path('dashboard/', include('dashboards.urls')),
+
+    # work on this feature later 
+    # path('ckeditor/', include('ckeditor_uploader.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

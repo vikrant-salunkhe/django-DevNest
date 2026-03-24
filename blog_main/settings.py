@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'crispy_bootstrap4',
     'dashboards',
     # 'django.contrib.messages',
+    # 'ckeditor',
+    # 'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
