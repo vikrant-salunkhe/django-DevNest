@@ -12,8 +12,14 @@ from django.contrib.auth.models import User
 @login_required(login_url='login')   
 def dashboard(request):
     category_count = Category.objects.all().count()
-    blogs_count = Blog.objects.all().count()
+    # blogs_count = Blog.objects.all().count()
 
+    user = request.user
+    
+    if user.is_superuser or user.groups.filter(name__in=['Editor', 'manager']).exists():
+        blogs_count = Blog.objects.all().count()
+    else:
+        blogs_count = Blog.objects.filter(author=user).count()
     context = {
         'category_count': category_count,
         'blogs_count': blogs_count,
@@ -59,7 +65,11 @@ def delete_category(request, pk):
 
 
 def posts(request):
-    posts = Blog.objects.all()
+    user = request.user
+    if user.is_superuser or user.groups.filter(name__in=['Editor', 'manager']).exists():
+        posts = Blog.objects.all()
+    else:
+        posts = Blog.objects.filter(author=user)
     context = {
         'posts': posts,
     }
