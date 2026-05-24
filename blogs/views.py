@@ -27,6 +27,9 @@ def posts_by_category(request, category_id):
 
 
 def blogs(request, slug):
+
+    request.session['last_visited_blog'] = slug  # save to session
+
     single_blog = get_object_or_404(Blog, slug=slug, status='Published')
     if request.method == 'POST':
         comment = Comment()
@@ -49,6 +52,9 @@ def blogs(request, slug):
 
 def search(request):
     keyword = request.GET.get('keyword')
+
+    if not keyword:
+        return render(request, 'home.html')
     
     blogs = Blog.objects.filter(Q(title__icontains=keyword) | Q(short_description__icontains=keyword), status='Published')
   

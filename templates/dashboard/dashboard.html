@@ -10,6 +10,15 @@
     <!-- Right side content -->
     <div class="col-md-9">
         <span>Logged in as <b>{{ user }}</b></span>
+
+        {% comment %} <p class="text-muted">
+            Last login: {{ user.last_login | date:"d M Y, h:i A" }}
+        </p> {% endcomment %}
+
+        {% if last_blog %}
+            <p>Last blog you read: <a href="{% url 'blogs' last_blog %}">{{ last_blog }}</a></p>
+        {% endif %}
+
         <div class="row">
             <div class="col">
                 <div class="card border-default mb-3">

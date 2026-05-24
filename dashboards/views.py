@@ -11,6 +11,9 @@ from django.contrib.auth.models import User
 # means that only logged in users can access the dashboard page
 @login_required(login_url='login')   
 def dashboard(request):
+
+    last_blog = request.session.get('last_visited_blog', None)
+
     category_count = Category.objects.all().count()
     # blogs_count = Blog.objects.all().count()
 
@@ -21,6 +24,7 @@ def dashboard(request):
     else:
         blogs_count = Blog.objects.filter(author=user).count()
     context = {
+        'last_blog': last_blog,
         'category_count': category_count,
         'blogs_count': blogs_count,
     }
