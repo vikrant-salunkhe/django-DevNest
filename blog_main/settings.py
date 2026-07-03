@@ -141,7 +141,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR /'media'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 
 # Session expires after 30 minutes of inactivity
-SESSION_COOKIE_AGE = 30          # 30 minutes in seconds
+SESSION_COOKIE_AGE = 300         # 30 minutes in seconds
 SESSION_SAVE_EVERY_REQUEST = True     # resets the timer on every request
