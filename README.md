@@ -2,21 +2,52 @@
 
 > **A developer-focused blogging platform built with Django.**
 
-DevNest is a modern blogging platform designed specifically for developers to create, publish, and discover technical articles. It provides a clean reading experience, role-based content management, secure authentication, and an intuitive dashboard for managing blog posts.
+DevNest is a modern blogging platform designed specifically for developers to create, publish, and discover technical articles. It provides a clean reading experience, role-based content management, secure authentication, and dashboard for managing blog posts.
 
 ---
 
 ## 📸 Preview
 
-> Add screenshots or GIFs here.
 
-```
-Home Page
-Blog Details
-Dashboard
-Create Blog
-Admin Panel
-```
+## Home Page
+![Home Page](assets/screenshots/homepage.png)  
+
+## Login Page
+![login page](assets/screenshots/login.png)
+
+## Featured Posts
+![featured posts](assets/screenshots/featured-posts.png)
+
+## Recent Articals
+![recent posts](assets/screenshots/recent-posts.png)
+
+## Blog Details
+![Blog Details](assets/screenshots/blog-details.png)
+
+## Dashboards
+As the feature of Role Based Access, User, Editor, Manager and Admin have the different Dashboard interfaces 
+### User Dashboard
+![user dashboard](assets/screenshots/user-dashboard.png)
+![user posts](assets/screenshots/user-posts.png)
+
+### Editor Dashboard
+![editor dashboard](assets/screenshots/editor-dashboard.png)
+![editor dashboard](assets/screenshots/editor-dashboard.png)
+
+### Manager Dashboard
+![manger dashboard](assets/screenshots/manager-dashboard.png)
+![manger categories](assets/screenshots/manager-categories.png)
+![manger posts](assets/screenshots/manager-posts.png)
+![manger users](assets/screenshots/manager-users.png)
+
+## Admin Panel
+![admin panel](assets/screenshots/admin.png)
+
+## Create Blog
+![Create Blog](assets/screenshots/create-blog.png)
+
+## 
+
 
 ---
 
@@ -275,9 +306,7 @@ Supported roles:
 # 🌟 Future Improvements
 
 * User Profiles
-* Comments System
 * Like & Bookmark Blogs
-* Rich Text Editor
 * Dark Mode
 * Email Verification
 * Password Reset
@@ -337,11 +366,6 @@ git push origin feature/feature-name
 
 ---
 
-# 📄 License
-
-This project is licensed under the MIT License.
-
----
 
 # 👨‍💻 Author
 
